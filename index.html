@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elenco Spesa - Gestione Liste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar per le liste -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Le Mie Liste</h1>
+                <button class="btn-new-list" id="newListBtn" title="Crea nuova lista">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="lists-container" id="listsContainer">
+                <!-- Le liste verranno inserite qui dinamicamente -->
+            </div>
+        </aside>
+
+        <!-- Area principale per gli elementi della lista -->
+        <main class="main-content">
+            <div class="welcome-message" id="welcomeMessage">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                    <circle cx="32" cy="32" r="30" stroke="#e0e0e0" stroke-width="2"/>
+                    <path d="M20 32l8 8 16-16" stroke="#e0e0e0" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h2>Benvenuto!</h2>
+                <p>Crea una nuova lista per iniziare</p>
+            </div>
+
+            <div class="list-view" id="listView" style="display: none;">
+                <div class="list-header">
+                    <h2 class="list-title" id="listTitle">Lista</h2>
+                    <button class="btn-delete-list" id="deleteListBtn" title="Elimina lista">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 5h14M8 5V3h4v2M6 5v12a2 2 0 002 2h4a2 2 0 002-2V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="add-item-container">
+                    <input 
+                        type="text" 
+                        class="input-new-item" 
+                        id="newItemInput" 
+                        placeholder="Aggiungi un elemento"
+                    >
+                    <button class="btn-add-item" id="addItemBtn">Aggiungi</button>
+                </div>
+
+                <div class="items-container" id="itemsContainer">
+                    <!-- Gli elementi verranno inseriti qui dinamicamente -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal per creare nuova lista -->
+    <div class="modal" id="newListModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nuova Lista</h3>
+                <button class="btn-close" id="closeModalBtn">×</button>
+            </div>
+            <div class="modal-body">
+                <input 
+                    type="text" 
+                    class="input-list-name" 
+                    id="listNameInput" 
+                    placeholder="Nome della lista (es. Spesa, Todo, Viaggi...)"
+                    autocomplete="off"
+                >
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" id="cancelBtn">Annulla</button>
+                <button class="btn-create" id="createListBtn">Crea</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
